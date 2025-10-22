@@ -6,7 +6,6 @@ import { inject, injectable, interfaces } from "inversify";
 import SI from "@config/inversify.types";
 import FeatureService from "@src/Feature/FeatureService";
 import { ResolverInterface } from "@src/Resolver/Interfaces";
-import Newable = interfaces.Newable;
 
 @injectable()
 export default class SuggestFeature extends AbstractFeature<Feature> {
@@ -16,7 +15,7 @@ export default class SuggestFeature extends AbstractFeature<Feature> {
 
     constructor(
         @inject(SI["newable:obsidian:chooser"])
-        chooser: Newable<Chooser>,
+        chooser: interfaces.Newable<Chooser>,
         @inject(SI["feature:service"])
         service: FeatureService
     ) {
@@ -50,7 +49,7 @@ export default class SuggestFeature extends AbstractFeature<Feature> {
         return SuggestFeature.getId();
     }
 
-    private createChooserReplacer(chooser: Newable<Chooser>): void {
+    private createChooserReplacer(chooser: interfaces.Newable<Chooser>): void {
         if (typeof chooser.prototype.setSuggestions !== "function") {
             return;
         }

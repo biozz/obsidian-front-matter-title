@@ -34,6 +34,7 @@ export type SettingsType = {
     boot: {
         delay: number;
         background: boolean;
+        skipNotification: boolean;
     };
     features: SettingsFeature;
 };

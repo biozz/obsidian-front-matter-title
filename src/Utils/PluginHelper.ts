@@ -41,6 +41,7 @@ export default class PluginHelper {
             boot: {
                 delay: 1000,
                 background: true,
+                skipNotification: false,
             },
             features: {
                 [Feature.Alias]: {

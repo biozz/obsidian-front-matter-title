@@ -152,6 +152,10 @@ const zh_tw: Translation = {
         title: "延遲啟動加載",
         desc: "插件將在指定時間（毫秒）後加載",
     },
+    boot_skip_notification: {
+        title: "跳過背景通知",
+        desc: "跳過背景通知當插件加載時",
+    },
     disabled: "禁用",
     processor: {
         name: "處理器",

@@ -7,7 +7,7 @@ export default class LoggerComposer {
     private loggers = new Map<string, LoggerInterface>();
     private enabled = false;
 
-    public create(name: string): LoggerInterface {
+    public create(name: any): LoggerInterface {
         if (!this.loggers.has(name)) {
             this.loggers.set(name, new Debugger(name, this.isEnabled.bind(this)));
         }

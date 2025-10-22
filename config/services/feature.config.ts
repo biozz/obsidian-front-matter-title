@@ -38,9 +38,8 @@ import { ResolverInterface } from "@src/Resolver/Interfaces";
 import { ExplorerFileItemMutator } from "@src/Feature/Explorer/ExplorerFileItemMutator";
 import Storage from "@src/Storage/Storage";
 import WindowFrameFeature from "@src/Feature/WindowFrame/WindowFrameFeature";
-import Container = interfaces.Container;
 
-export default (container: Container) => {
+export default (container: interfaces.Container) => {
     container.bind(SI["feature:service"]).to(FeatureService).inSingletonScope();
     container.bind(SI["feature:composer"]).to(FeatureComposer).inSingletonScope();
     container.bind(SI["manager:composer"]).to(ManagerComposer).inSingletonScope();

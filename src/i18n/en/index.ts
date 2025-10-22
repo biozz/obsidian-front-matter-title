@@ -168,6 +168,10 @@ const en = {
         title: "Boot in background",
         desc: "Plugin will be loaded in background to not blocking application",
     },
+    boot_skip_notification: {
+        title: "Skip notification",
+        desc: "Skip notification when plugin is loaded in background",
+    },
     disabled: "Disabled",
     processor: {
         name: "Processor",

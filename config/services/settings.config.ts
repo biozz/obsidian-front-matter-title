@@ -1,5 +1,4 @@
-import { Container as K, interfaces } from "inversify";
-import Container = interfaces.Container;
+import { interfaces } from "inversify";
 import SI from "@config/inversify.types";
 import DefaultBuilder from "@src/Settings/FeatureBuilder/DefaultBuilder";
 import AliasBuilder from "@src/Settings/FeatureBuilder/AliasBuilder";
@@ -15,7 +14,7 @@ import ProcessorBuilder from "../../src/Settings/SettingBuilders/Processor/Proce
 import NoteLinkBuilder from "@src/Settings/FeatureBuilder/NoteLinkBuilder";
 import ExplorerBuilder from "@src/Settings/FeatureBuilder/ExplorerBuilder";
 
-export default (c: Container) => {
+export default (c: interfaces.Container) => {
     c.bind(SI["settings:feature:builder"]).to(DefaultBuilder).whenTargetNamed("default");
     c.bind(SI["settings:feature:builder"])
         .to(AliasBuilder)
@@ -39,7 +38,7 @@ export default (c: Container) => {
     c.bind(SI["settings:builder"]).to(RulesDelimiterBuilder).whenTargetNamed("rules");
     c.bind(SI["settings:builder"]).to(RulesPathsBuilder).whenTargetNamed("rules");
 
-    c.bind<SettingsBuilderFactory>(SI["factory:settings:builder"]).toFunction(name =>
+    c.bind<SettingsBuilderFactory>(SI["factory:settings:builder"]).toFunction((name: string) =>
         c.getAllNamed(SI["settings:builder"], name)
     );
 };

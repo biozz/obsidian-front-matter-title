@@ -63,5 +63,13 @@ export default class UtilBuilder implements SettingBuilderInterface<SettingsType
                     item.get("background").set(e);
                 })
             );
+        new Setting(container)
+            .setName(t("boot_skip_notification.title"))
+            .setDesc(t("boot_skip_notification.desc"))
+            .addToggle(e =>
+                e.setValue(item.get("skipNotification").value()).onChange(e => {
+                    item.get("skipNotification").set(e);
+                })
+            );
     }
 }
